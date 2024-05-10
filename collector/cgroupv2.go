@@ -194,14 +194,16 @@ func (e *Exporter) getMetricsv2(name string, pids []int, opts cgroup2.InitOpts) 
 	}
 	return metric, nil
 }
-
+import "os"
 func (e *Exporter) collectv2() ([]CgroupMetric, error) {
 	var names []string
 	var metrics []CgroupMetric
 	for _, path := range e.paths {
 		var group string
 		if strings.Contains(path, "slurm") {
-			group = "/system.slice/slurmstepd.scope"
+			hostname, err := os.Hostname()
+			// group = "/system.slice/slurmstepd.scope"
+			group = "/system.slice/" + hostname + "_slurmstepd.scope"
 		} else {
 			group = path
 		}
