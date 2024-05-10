@@ -203,7 +203,7 @@ func (e *Exporter) collectv2() ([]CgroupMetric, error) {
 		if strings.Contains(path, "slurm") {
 			hostname, err := os.Hostname()
 			if err != nil {
-            	log.Fatalf("Failed to get hostname: %v", err)
+				level.Error(e.logger).Log("msg", "Failed to get hostname", "path", path, "group", group, "err", err)
             }
 			// group = "/system.slice/slurmstepd.scope"
 			group = "/system.slice/" + hostname + "_slurmstepd.scope"
