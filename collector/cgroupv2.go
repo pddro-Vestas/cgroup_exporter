@@ -194,7 +194,7 @@ func (e *Exporter) getMetricsv2(name string, pids []int, opts cgroup2.InitOpts) 
 	}
 	return metric, nil
 }
-import "os"
+
 func (e *Exporter) collectv2() ([]CgroupMetric, error) {
 	var names []string
 	var metrics []CgroupMetric
