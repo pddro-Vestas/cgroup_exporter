@@ -5,3 +5,7 @@ builds:
       - linux
     goarch:
       - "amd64"
+
+archives:
+  - id: archive
+    name_template: '{{ .ProjectName }}-{{ .Version }}_{{ .Os }}_{{ .Arch }}'
