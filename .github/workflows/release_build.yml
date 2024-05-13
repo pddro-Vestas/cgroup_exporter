@@ -57,6 +57,6 @@ jobs:
       uses: goreleaser/goreleaser-action@master
       with:
         version: latest
-        args: GOOS=linux GOARCH=amd64 release --clean 
+        args: release --clean
       env:
         GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
